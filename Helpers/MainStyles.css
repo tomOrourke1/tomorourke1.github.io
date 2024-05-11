@@ -1,0 +1,175 @@
+/*
+    Variables for quick and easy changeability
+    Note: some variables are used in multiple places!
+*/
+
+:root {
+    --accentColor: #fb5058;
+    /* the width of the main section */
+    /* 100 rem = full width of page */
+    --homeWidth: 50rem;
+    --resumeWidth: 75rem;
+    --projectWidth: 60rem;
+    --iconSize: 15rem;
+    --mainMinHeight: 90vh;
+    --regularLineHeight: 1.25em;
+    --outsideBorderValue: 0.15rem solid var(--accentColor);
+    --spacerBorderValue: 0.15rem solid var(--accentColor);
+    --bodyFontSize: 1.8rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: Consolas;
+    font-weight: 400;
+    font-size: var(--bodyFontSize);
+    line-height: var(--regularLineHeight);
+    display: grid;
+    min-height: var(--mainMinHeight);
+    padding: 1vmax;
+    margin: 0;
+}
+
+main {
+    padding: 2em;
+    margin: auto;
+}
+
+/* 
+    Controls the height/width/padding 
+    across all major pages. 
+    Change variables up at the top!
+*/
+
+.homediv {
+    border: var(--outsideBorderValue);
+    padding: 2em;
+    margin: auto;
+    max-width: var(--homeWidth);
+}
+
+.resumediv {
+    border: var(--outsideBorderValue);
+    padding: 2em;
+    margin: auto;
+    max-width: var(--resumeWidth);
+}
+
+.projectdiv {
+    border: var(--outsideBorderValue);
+    padding: 2em;
+    margin: auto;
+    align-self: center;
+    max-width: var(--projectWidth);
+}
+
+/* All other related MainStyles */
+
+header {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    place-items: center center;
+}
+
+    header:before {
+        content: "";
+        display: block;
+        /* Background Settings */
+        background-image: url(../SiteImages/Favicon.png);
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* Image Height/Width */
+        height: var(--iconSize);
+        width: var(--iconSize);
+        /* Grid Settings */
+        grid-column: 1 / span 1;
+        grid-row: 1;
+    }
+
+h1 {
+    /* Background Settings */
+    font-size: 1em;
+    font-weight: 400;
+    line-height: var(--regularLineHeight);
+    /* Grid Settings */
+    grid-column: 2 / span 1;
+    grid-row: 1;
+    margin-left: 2rem;
+    align-self: center;
+}
+
+    h1 a {
+        font-size: 4rem;
+        line-height: calc(var(--regularLineHeight) * 0.66);
+        display: block;
+        font-weight: bold;
+    }
+
+    h1:hover a:hover {
+        border: none;
+    }
+
+a {
+    font-weight: bold;
+}
+
+p {
+    margin: 0.5em auto;
+}
+
+.spacer {
+    border-bottom: var(--spacerBorderValue);
+    margin: 1em 0;
+}
+
+a {
+    color: var(--accentColor);
+    text-decoration: none;
+    font-size: 1em;
+    transition: border linear 0.1s;
+}
+
+    a:hover {
+        border-bottom: var(--outsideBorderValue);
+    }
+
+/*
+    The Resume page's pdf iframe
+*/
+
+iframe {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.resume img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: auto;
+}
+
+@media (max-width: 1023px) {
+    html {
+        font-size: 2vw;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    body, h1 {
+        font-weight: 200;
+    }
+}

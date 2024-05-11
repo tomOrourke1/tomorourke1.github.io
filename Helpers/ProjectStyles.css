@@ -1,0 +1,19 @@
+.project {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.project-media {
+    padding: 1rem 0;
+}
+
+    .project-media img {
+        width: 75%;
+        height: auto;
+    }
+
+.project-body {
+    text-align: left;
+    font-size: 1.75rem;
+}
