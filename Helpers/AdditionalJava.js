@@ -1,7 +1,3 @@
-/* 
- Change the text between the <h1> </h1> to change the header across all pages
-*/
-
 document.addEventListener('DOMContentLoaded', (event) => {
     const headerItem =
         ` <h1>
@@ -24,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     const imgResume = ' <img src = "../SiteImages/ThomasORourkeResume.png" />';
-    const pdfResume = ' <object data = "../SiteImages/ThomasORourkeResume.pdf" type = "application/pdf" style = "width: 65rem; height: 60rem;" > < iframe src="../SiteImages/ThomasORourkeResume.pdf" style="width: 65rem; height: 60rem;" frameborder="0" ></iframe>  </object> ';
+    const pdfResume = ' <object data = "../SiteImages/ThomasORourkeResume.pdf" type = "application/pdf" style = "width: 65rem; height: 50rem;" > < iframe src="../SiteImages/ThomasORourkeResume.pdf" style="width: 65rem; height: 60rem;" frameborder="0" ></iframe>  </object> ';
 
     if (IsMobile()) {
         // If the website is in mobile, use the img version to display
@@ -67,11 +63,4 @@ function DarkMode() {
     else {
         localStorage.setItem('theme', 'lightmode');
     }
-
-
-    //if (localStorage.getItem('dark')) {
-    //    document.body.classList.add('dark');
-    //} else {
-    //    document.body.classList.remove('dark')
-    //}
 }
