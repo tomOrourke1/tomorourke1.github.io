@@ -12,14 +12,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const headerSpot = document.querySelector('header');
     headerSpot.innerHTML = `${headerItem}`;
 
-    const darkModeBtnEmplace = '<div> <button onclick = "darkMode()"> Darkmode</button> </div>';
+    const darkModeBtnEmplace = '<div> <button onclick = "DarkMode()"> Switch Theme</button> </div>';
     const darkModeBtnPlacement = document.querySelector('body');
     darkModeBtnPlacement.innerHTML = darkModeBtnEmplace + darkModeBtnPlacement.innerHTML;
 
-    if (localStorage.getItem('dark')) {
-        document.body.classList.add('dark');
-    } else {
-        document.body.classList.remove('dark')
+    if (localStorage.getItem('theme') == 'darkmode') {
+        document.body.classList.toggle("dark-mode", true);
+    }
+    else {
+        document.body.classList.toggle("dark-mode", false);
     }
 
     const imgResume = ' <img src = "../SiteImages/ThomasORourkeResume.png" />';
@@ -57,14 +58,20 @@ function IsMobile() {
     });
 }
 
-function darkMode() {
-    var element = document.body;
-    var isOn = element.classList.toggle("dark-mode");
-    localStorage.setItem('dark', isOn);
+function DarkMode() {
+    var _status = document.body.classList.toggle("dark-mode");
 
-    if (localStorage.getItem('dark')) {
-        document.body.classList.add('dark');
-    } else {
-        document.body.classList.remove('dark')
+    if (_status) {
+        localStorage.setItem('theme', 'darkmode');
     }
+    else {
+        localStorage.setItem('theme', 'lightmode');
+    }
+
+
+    //if (localStorage.getItem('dark')) {
+    //    document.body.classList.add('dark');
+    //} else {
+    //    document.body.classList.remove('dark')
+    //}
 }
