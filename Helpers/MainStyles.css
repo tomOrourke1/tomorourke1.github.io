@@ -11,11 +11,15 @@
     --resumeWidth: 75rem;
     --projectWidth: 60rem;
     --iconSize: 15rem;
-    --mainMinHeight: 90vh;
     --regularLineHeight: 1.25em;
     --outsideBorderValue: 0.15rem solid var(--accentColor);
     --spacerBorderValue: 0.15rem solid var(--accentColor);
     --bodyFontSize: 1.8rem;
+    --darkmodeBackgroundColor: #242424;
+    --darkmodeTextColor: white;
+
+    /* Do not change */
+    --mainMinHeight: 90vh;
 }
 
 * {
@@ -160,6 +164,18 @@ iframe {
     margin-right: auto;
     width: 75%;
     height: auto;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 0.5em 1em;
+}
+
+.dark-mode {
+    background-color: var(--darkmodeBackgroundColor);
+    color: var(--darkmodeTextColor);
 }
 
 @media (max-width: 1023px) {

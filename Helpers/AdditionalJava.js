@@ -5,17 +5,25 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const headerItem =
         ` <h1>
-            <a href="https://tomorourke1.github.io/"> Thomas <br> O'Rourke </a>
+            <a href="https://tomorourke1.github.io/SitePages/Homepage.html"> Thomas <br> O'Rourke </a>
             Game Developer from New Jersey, United States.
         </h1> `
 
     const headerSpot = document.querySelector('header');
     headerSpot.innerHTML = `${headerItem}`;
 
+    const darkModeBtnEmplace = '<div> <button onclick = "darkMode()"> Darkmode</button> </div>';
+    const darkModeBtnPlacement = document.querySelector('body');
+    darkModeBtnPlacement.innerHTML = darkModeBtnEmplace + darkModeBtnPlacement.innerHTML;
 
-    const imgResume = ' <img src = "../SiteImages/ThomasORourkeResume.png" />'
+    if (localStorage.getItem('dark')) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark')
+    }
 
-    const pdfResume = ' <object data = "../SiteImages/ThomasORourkeResume.pdf" type = "application/pdf" style = "width: 65rem; height: 60rem;" > < iframe src="../SiteImages/ThomasORourkeResume.pdf" style="width: 65rem; height: 60rem;" frameborder="0" ></iframe>  </object> '
+    const imgResume = ' <img src = "../SiteImages/ThomasORourkeResume.png" />';
+    const pdfResume = ' <object data = "../SiteImages/ThomasORourkeResume.pdf" type = "application/pdf" style = "width: 65rem; height: 60rem;" > < iframe src="../SiteImages/ThomasORourkeResume.pdf" style="width: 65rem; height: 60rem;" frameborder="0" ></iframe>  </object> ';
 
     if (IsMobile()) {
         // If the website is in mobile, use the img version to display
@@ -29,7 +37,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const resumeSpot = document.querySelector('.resume');
         if (resumeSpot != null) {
             resumeSpot.innerHTML = `${pdfResume}`;
-        }    }
+        }
+    }
 });
 
 function IsMobile() {
@@ -46,4 +55,16 @@ function IsMobile() {
     return comparor.some((comparee) => {
         return navigator.userAgent.match(comparee);
     });
+}
+
+function darkMode() {
+    var element = document.body;
+    var isOn = element.classList.toggle("dark-mode");
+    localStorage.setItem('dark', isOn);
+
+    if (localStorage.getItem('dark')) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark')
+    }
 }
